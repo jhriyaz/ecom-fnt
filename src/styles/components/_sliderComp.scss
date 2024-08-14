@@ -1,0 +1,28 @@
+.home_slider {
+    .mySwiper {
+        max-width: 100%;
+
+        .slider_img {
+            padding: 0;
+            margin: 0;
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+
+            @media (max-width: 970px) {
+                height: auto;
+            }
+
+            // @media (max-width: 850px) {
+            //     height: 250px;
+            //   }
+            // @media (max-width: 570px) {
+            //     height: 180px;
+            //   }
+            // @media (max-width: 400px) {
+            //     height: 150px;
+            //     object-fit: contain;
+            //   }
+        }
+    }
+}

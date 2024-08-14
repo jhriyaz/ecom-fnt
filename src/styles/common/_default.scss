@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f8fa;
+  font-family: "Poppins", sans-serif;
+  height: 200vh !important;
+  overflow-x: hidden;
+  scroll-padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+i {
+  font-family: "Roboto", sans-serif;
+}
+
+.be-vietnam-pro {
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.main_container {
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media (max-width: 1220px) {
+    padding: 0 2vw;
+    margin: 0;
+  }
+}
+
+button:focus {
+  outline: none;
+}
+
+.primary_btn {
+  border: none;
+  outline: none;
+  background: $primary_color;
+  color: white;
+  padding: 7px 20px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: all 0.3s;
+
+  &:hover {
+    background: $primary_hover_color;
+    color: white;
+  }
+
+  &:disabled,
+  &[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 680px) {
+    padding: 3px 10px;
+    font-size: 15px;
+  }
+}
+
+.primary_outline_btn {
+  border: 1px solid $primary_color;
+  outline: none;
+  background: $white;
+  color: $primary_color;
+  padding: 7px 20px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: all 0.3s;
+
+  &:hover {
+    background: $primary_color;
+    color: white;
+  }
+
+  @media (max-width: 680px) {
+    padding: 3px 10px;
+    font-size: 15px;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.background_white {
+  background-color: $white;
+  padding: 10px;
+  box-shadow: $box_shadow;
+  border-radius: 5px;
+  margin: 0 1vw;
+}
+
+//thirt party library
+.react-tel-input .form-control {
+  background-color: white !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+//custom spinner
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+// ============= common classes============

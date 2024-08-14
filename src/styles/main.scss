@@ -1,0 +1,14 @@
+//common import
+@import "./common/variables";
+@import "./common/default";
+
+//components
+@import "./components/header";
+@import "./components/sliderComp";
+@import "./components/categoriesList";
+@import "./components/basicService";
+@import "./components/featuredProduct";
+@import "./components/product/productDetails";
+
+//pages
+@import "./pages/home";

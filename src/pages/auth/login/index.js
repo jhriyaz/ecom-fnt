@@ -1,8 +1,23 @@
+import dynamic from 'next/dynamic'
 import React from 'react'
+
+const LoginForm = dynamic(
+    async () => await import('@/components/auth/LoginForm'),
+    {
+        ssr: false
+    }
+)
 
 const Login = () => {
     return (
-        <div>Login</div>
+        <div className='gradient_bg'>
+            <div className='main_container registration_form'>
+                <LoginForm />
+
+
+                <p className='pt-3 text_gray fs-6'>By clicking “Sign In”, you agree to our <span className='text_primary'>Terms of Use and Privacy Policy.</span></p>
+            </div>
+        </div>
     )
 }
 

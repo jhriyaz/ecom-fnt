@@ -9,8 +9,9 @@ import { useAppDispatch } from "@/redux/hooks";
 import { doLogin } from "@/redux/features/auth/authAsyncActions";
 import { useRouter } from "next/navigation";
 import { verifyUser } from "@/redux/features/user/userAsyncActions";
+import { BiLock } from "react-icons/bi";
 
-const Login = () => {
+const LoginForm = () => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -54,73 +55,73 @@ const Login = () => {
   };
 
   return (
-    <div className="user_login_container">
-      <h3>Login</h3>
-      <div className="mb-3">
-        <Form
-          //   {...layout}
-          //   form={form}
-          name="control-hooks"
-          className="login-form"
-          onFinish={onFinish}
-          style={{
-            maxWidth: 600,
-          }}
-        >
-          <Form.Item
-            name="email"
-            rules={[
-              {
-                required: true,
-                message: "Email is required",
-              },
-            ]}
-          >
-            <Input
-              placeholder="Enter your email"
-              prefix={<MdEmail />}
-              allowClear
-            />
-          </Form.Item>
-          <Form.Item
-            name="password"
-            rules={[
-              {
-                required: true,
-                message: "Password is required",
-              },
-            ]}
-          >
-            <Input.Password
-              placeholder="Enter your password"
-              prefix={<CiLock />}
-            />
-          </Form.Item>
 
-          <Form.Item>
-            <div className="d-flex justify-content-center">
-              <Button
-                size="lg"
-                type="primary"
-                htmlType="submit"
-                className="primary_btn"
-              >
-                {loading ? (
-                  <div>
-                    <Spin size="small" />
-                    Logging..
-                  </div>
-                ) : (
-                  "Login"
-                )}
-              </Button>
-            </div>
-          </Form.Item>
-        </Form>
-      </div>
-      <Toaster richColors position="top-center" />
-    </div>
+    <Form
+      name="control-hooks"
+      className="form"
+      onFinish={onFinish}
+      style={{
+        maxWidth: 600,
+      }}
+    >
+
+      <h3 className='section_title'>Login</h3>
+      <p className='section_subtitle'>To stay connected with us, please Login</p>
+      <Form.Item
+        name="email"
+        rules={[
+          {
+            required: true,
+            message: "Email is required",
+          },
+        ]}
+        className="default_form_item"
+      >
+        <Input
+          className='default_input'
+          placeholder="Enter your email"
+          prefix={<MdEmail />}
+          allowClear
+        />
+      </Form.Item>
+      <Form.Item
+        name="password"
+        rules={[
+          {
+            required: true,
+            message: "Password is required",
+          },
+        ]}
+        className="default_form_item"
+      >
+        <Input.Password
+          className='default_input'
+          placeholder="Enter your password"
+          prefix={<BiLock size={20} />}
+        />
+      </Form.Item>
+
+      <Form.Item>
+        <div className="d-flex justify-content-center pt-3">
+          <Button
+            size="lg"
+            type="primary"
+            htmlType="submit"
+            className="submit_button"
+          >
+            {loading ? (
+              <div>
+                <Spin size="small" />
+                Logging..
+              </div>
+            ) : (
+              "Login"
+            )}
+          </Button>
+        </div>
+      </Form.Item>
+    </Form>
   );
 };
 
-export default Login;
+export default LoginForm;

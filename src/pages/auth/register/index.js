@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
 import dynamic from 'next/dynamic';
 const RegisterForm = dynamic(
-    async () => await import('@/components/auth/RegisterForm')
+    async () => await import('@/components/auth/RegisterForm'),
+    {
+        ssr: false
+    }
 );
 const OtpForm = dynamic(
-    async () => await import('@/components/auth/OptForm')
+    async () => await import('@/components/auth/OptForm'),
+    {
+        ssr: false
+    }
 );
 
 const Register = () => {

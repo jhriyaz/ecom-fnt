@@ -1,4 +1,4 @@
-import Login from "@/components/auth/Login";
+import LoginForm from "@/components/auth/LoginForm";
 import { Dropdown } from "antd";
 import { useEffect, useState } from "react";
 
@@ -25,7 +25,7 @@ const UserMenu = () => {
   const items = [
     {
       key: "1",
-      label: <Login />,
+      label: <LoginForm />,
     },
   ];
 
@@ -52,7 +52,7 @@ const UserMenu = () => {
             e.preventDefault();
             handleDropdown();
           }}
-          // className="drop"
+        // className="drop"
         >
           <span onClick={handleClickUser}>
             <i className="far fa-user"></i>

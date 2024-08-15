@@ -1,8 +1,4 @@
-import { Form, Input } from 'antd'
-import React, { useState } from 'react'
-import { HiOutlineUserCircle } from 'react-icons/hi2'
-import { TbMail } from "react-icons/tb";
-import { BiLock } from "react-icons/bi";
+import React from 'react'
 import dynamic from 'next/dynamic';
 const RegisterForm = dynamic(
     async () => await import('@/components/auth/RegisterForm')

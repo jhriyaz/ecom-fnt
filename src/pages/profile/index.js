@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <HeadComp />
-      <Header />
+      {/* <Header /> */}
       <main className="main_container">Profile Page</main>
     </>
   );

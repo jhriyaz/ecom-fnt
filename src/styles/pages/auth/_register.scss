@@ -21,20 +21,9 @@
         }
 
         .default_form_item {
-            position: relative;
-
-            .icon {
-                position: absolute;
-                top: 10px;
-                // transform: translateY(-50%);
-                left: 15px;
-                color: $text_gray;
-            }
-
             .ant-input-affix-wrapper {
                 box-shadow: none;
             }
-
 
         }
 
@@ -44,7 +33,6 @@
             background-color: $primary_light;
             border: 1px solid $border_light_blue;
             border-radius: 6px;
-            padding-left: 40px;
             font-size: 16px;
             font-weight: 500;
             color: $text_gray;

@@ -1,4 +1,4 @@
-import { Checkbox, Divider, Form, Input } from 'antd'
+import { Checkbox, Divider, Form, Input, Spin } from 'antd'
 import React, { useState } from 'react'
 import { HiOutlineUserCircle } from 'react-icons/hi2'
 import { TbMail } from "react-icons/tb";
@@ -20,7 +20,33 @@ const RegisterForm = () => {
 
 
     const onFinish = (values) => {
-        console.log('Success:', values);
+
+        console.log(values)
+        setLoading(true)
+        axios.post('user/signup', values)
+            .then(res => {
+
+                if (res.data.isOtpSend) {
+                    setError(null)
+                    setIsOtpSend(true)
+                    setEmail(res.data.email)
+                    setMount(false)
+                    setLoading(false)
+                    setTimeout(() => {
+                        setMount(true)
+                    }, 100);
+                    setNewCodeTimer(Date.now() + 59000)
+                }
+
+                setLoading(false)
+
+            })
+            .catch(err => {
+                setError(err && err.response && err.response.data);
+                setLoading(false)
+                console.log(err);
+            })
+
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -40,30 +66,21 @@ const RegisterForm = () => {
                 name="name"
                 className="default_form_item"
             >
-                <Input className='default_input' placeholder="Name" />
-                <span className='icon'>
-                    <HiOutlineUserCircle size={20} />
-                </span>
+                <Input prefix={<HiOutlineUserCircle size={20} />} className='default_input' placeholder="Name" />
             </Form.Item>
 
             <Form.Item
                 name="email"
                 className="default_form_item"
             >
-                <Input placeholder="Email Address" className='default_input' />
-                <span className='icon'>
-                    <TbMail size={20} />
-                </span>
+                <Input prefix={<TbMail size={20} />} placeholder="Email Address" className='default_input' />
             </Form.Item>
 
             <Form.Item
                 name="password"
                 className="default_form_item"
             >
-                <Input.Password placeholder='Password' className='default_input' />
-                <span className='icon'>
-                    <BiLock size={20} />
-                </span>
+                <Input.Password prefix={<BiLock size={20} />} placeholder='Password' className='default_input' />
                 <div className='d-flex align-items-center justify-content-between pt-2'>
                     <p>
                         <Checkbox className="be-vietnam-pro">

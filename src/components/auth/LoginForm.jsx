@@ -1,4 +1,4 @@
-import { Button, Form, Input, Spin } from "antd";
+import { Button, Divider, Form, Input, Spin } from "antd";
 import { MdEmail } from "react-icons/md";
 import { CiLock } from "react-icons/ci";
 import { useState } from "react";
@@ -10,6 +10,8 @@ import { doLogin } from "@/redux/features/auth/authAsyncActions";
 import { useRouter } from "next/navigation";
 import { verifyUser } from "@/redux/features/user/userAsyncActions";
 import { BiLock } from "react-icons/bi";
+import { FcGoogle } from "react-icons/fc";
+import Link from "next/link";
 
 const LoginForm = () => {
   const dispatch = useAppDispatch();
@@ -120,6 +122,17 @@ const LoginForm = () => {
           </Button>
         </div>
       </Form.Item>
+
+      <Divider className='fs-6 text_gray'>Or Login With</Divider>
+
+      <button htmlType="button" className='default_input'>
+        <div className='d-flex align-items-center justify-content-center gap-2'>
+          <FcGoogle size={20} />
+          Continue with Google
+        </div>
+      </button>
+
+      <p className='text-center fs-6 text_gray fw-semibold pt-3'>Don't have an account? <Link href={'/auth/register'}>Register</Link></p>
     </Form>
   );
 };

@@ -1,6 +1,7 @@
 //common import
 @import "./common/variables";
 @import "./common/default";
+@import "./common/common";
 
 //components
 @import "./components/header";
@@ -12,3 +13,4 @@
 
 //pages
 @import "./pages/home";
+@import "./pages/auth/register";

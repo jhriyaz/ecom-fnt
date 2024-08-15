@@ -1,0 +1,72 @@
+.registration_form {
+    max-width: 700px;
+    min-height: calc(100vh - 161px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .form {
+        background-color: $white;
+        width: 100%;
+        border-radius: 10px;
+        padding: 40px;
+
+        -webkit-box-shadow: 0px 0px 66px -19px rgba(66, 134, 244, 0.64);
+        -moz-box-shadow: 0px 0px 66px -19px rgba(66, 134, 244, 0.64);
+        box-shadow: 0px 0px 66px -19px rgba(66, 134, 244, 0.64);
+
+        .section_subtitle {
+            padding-bottom: 25px;
+        }
+
+        .default_form_item {
+            position: relative;
+
+            .icon {
+                position: absolute;
+                top: 10px;
+                // transform: translateY(-50%);
+                left: 15px;
+                color: $text_gray;
+            }
+
+            .ant-input-affix-wrapper {
+                box-shadow: none;
+            }
+
+
+        }
+
+        .default_input {
+            height: 45px;
+            width: 100%;
+            background-color: $primary_light;
+            border: 1px solid $border_light_blue;
+            border-radius: 6px;
+            padding-left: 40px;
+            font-size: 16px;
+            font-weight: 500;
+            color: $text_gray;
+
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        .submit_button {
+            width: 100%;
+            padding: 10px 20px;
+            outline: none;
+            border: none;
+            background-color: $primary_color;
+            color: $white;
+            border-radius: 10px;
+            height: 45px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+    }
+}

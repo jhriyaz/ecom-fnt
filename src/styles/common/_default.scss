@@ -11,8 +11,9 @@
 
 body {
   background-color: #f7f8fa;
-  font-family: "Poppins", sans-serif;
-  height: 200vh !important;
+  // font-family: "Poppins", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  // height: 200vh !important;
   overflow-x: hidden;
   scroll-padding: 0;
 }
@@ -24,22 +25,14 @@ h4,
 h5,
 h6,
 a,
+p,
+button,
 i {
-  font-family: "Roboto", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif !important;
 }
 
 .be-vietnam-pro {
   font-family: "Be Vietnam Pro", sans-serif;
-}
-
-.main_container {
-  max-width: 1440px;
-  margin: 0 auto;
-
-  @media (max-width: 1220px) {
-    padding: 0 2vw;
-    margin: 0;
-  }
 }
 
 button:focus {

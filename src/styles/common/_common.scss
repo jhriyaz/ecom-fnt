@@ -1,0 +1,67 @@
+.gradient_bg {
+    width: 100%;
+    min-height: calc(100vh - 161px);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(130deg, rgba(255, 255, 255, 1) 0%, rgba(246, 238, 252, 1) 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 32vw;
+        height: 32vw;
+        bottom: -11vw;
+        left: -11vw;
+        background: rgb(254, 254, 255);
+        background: radial-gradient(circle, rgba(254, 254, 255, 1) 8%, rgba(245, 233, 253, 0.6166841736694677) 57%, rgba(231, 202, 251, 0.48503151260504207) 68%, rgba(220, 178, 249, 0.45702030812324934) 83%, rgba(213, 162, 248, 0.42620798319327735) 100%);
+        z-index: 10;
+        border-radius: 50%;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 35vw;
+        height: 35vw;
+        top: -15vw;
+        right: -10vw;
+        background: rgb(249, 242, 253);
+        background: radial-gradient(circle, rgba(249, 242, 253, 1) 13%, rgba(254, 252, 255, 1) 72%);
+        z-index: 10;
+        border-radius: 50%;
+    }
+}
+
+
+.main_container {
+    max-width: 1440px;
+    margin: 0 auto;
+
+    @media (max-width: 1220px) {
+        padding: 0 2vw;
+        margin: 0;
+    }
+}
+
+.section_title {
+    font-size: 24px;
+    color: $text_black;
+    font-weight: 600;
+    text-align: center;
+}
+
+.section_subtitle {
+    font-size: 14px;
+    color: $text_gray;
+    font-weight: 400;
+    text-align: center;
+}
+
+.text_gray {
+    color: $text_gray;
+}
+
+.text_primary {
+    color: $primary_color;
+}

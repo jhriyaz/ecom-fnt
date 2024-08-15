@@ -3,54 +3,10 @@ import React, { useState } from 'react'
 import { HiOutlineUserCircle } from 'react-icons/hi2'
 import { TbMail } from "react-icons/tb";
 import { BiLock } from "react-icons/bi";
-import dynamic from 'next/dynamic';
 import { FcGoogle } from "react-icons/fc";
 import Link from 'next/link';
 
-const RegisterForm = () => {
-
-    const [loading, setLoading] = useState(false)
-    const [newCodeTimer, setNewCodeTimer] = useState(Date.now() + 59000)
-    const [mount, setMount] = useState(true)
-    const [email, setEmail] = useState('')
-    const [otp, setOtp] = useState('')
-    const [error, setError] = useState(null)
-    const [isOtpSend, setIsOtpSend] = useState(false)
-
-
-
-    const onFinish = (values) => {
-
-        console.log(values)
-        setLoading(true)
-        axios.post('user/signup', values)
-            .then(res => {
-
-                if (res.data.isOtpSend) {
-                    setError(null)
-                    setIsOtpSend(true)
-                    setEmail(res.data.email)
-                    setMount(false)
-                    setLoading(false)
-                    setTimeout(() => {
-                        setMount(true)
-                    }, 100);
-                    setNewCodeTimer(Date.now() + 59000)
-                }
-
-                setLoading(false)
-
-            })
-            .catch(err => {
-                setError(err && err.response && err.response.data);
-                setLoading(false)
-                console.log(err);
-            })
-
-    };
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
+const RegisterForm = ({ onFinishFailed, onFinish, loading }) => {
 
     return (
         <Form

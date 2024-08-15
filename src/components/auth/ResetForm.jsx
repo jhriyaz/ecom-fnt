@@ -4,7 +4,7 @@ import { BiLock } from 'react-icons/bi'
 import { MdSecurity } from 'react-icons/md'
 import { TbMail, TbPasswordMobilePhone } from 'react-icons/tb'
 
-const ResetForm = () => {
+const ResetForm = ({ setActive }) => {
 
     const [loading, setLoading] = useState(false)
 
@@ -89,6 +89,8 @@ const ResetForm = () => {
                 }
 
             </button>
+
+            <p className='text_primary text-center pt-3' onClick={() => setActive('otp')}>Change Email</p>
         </Form >
     )
 }

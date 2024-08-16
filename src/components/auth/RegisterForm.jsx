@@ -21,6 +21,12 @@ const RegisterForm = ({ onFinishFailed, onFinish, loading }) => {
             <Form.Item
                 name="name"
                 className="default_form_item"
+                rules={[
+                    {
+                        required: true,
+                        message: "Please enter your name"
+                    }
+                ]}
             >
                 <Input prefix={<HiOutlineUserCircle size={20} />} className='default_input' placeholder="Name" />
             </Form.Item>
@@ -28,6 +34,12 @@ const RegisterForm = ({ onFinishFailed, onFinish, loading }) => {
             <Form.Item
                 name="email"
                 className="default_form_item"
+                rules={[
+                    {
+                        required: true,
+                        message: "Please enter your Email"
+                    }
+                ]}
             >
                 <Input prefix={<TbMail size={20} />} placeholder="Email Address" className='default_input' />
             </Form.Item>
@@ -35,17 +47,23 @@ const RegisterForm = ({ onFinishFailed, onFinish, loading }) => {
             <Form.Item
                 name="password"
                 className="default_form_item"
+                rules={[
+                    {
+                        required: true,
+                        message: "Please enter your Password"
+                    }
+                ]}
             >
                 <Input.Password prefix={<BiLock size={20} />} placeholder='Password' className='default_input' />
-                <div className='d-flex align-items-center justify-content-between pt-2'>
-                    <p>
-                        <Checkbox className="be-vietnam-pro">
-                            Keep signed in to stay connected.
-                        </Checkbox>
-                    </p>
-                    <p className='text-end'>Must be at least 8 characters</p>
-                </div>
             </Form.Item>
+            <div className='d-flex align-items-center justify-content-between pt-2'>
+                <p>
+                    <Checkbox className="be-vietnam-pro">
+                        Keep signed in to stay connected.
+                    </Checkbox>
+                </p>
+                <p className='text-end'>Must be at least 8 characters</p>
+            </div>
 
             <button className="submit_button" disabled={loading} type="primary" htmlType="submit">
                 Register

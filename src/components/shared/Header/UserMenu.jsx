@@ -1,6 +1,7 @@
 import LoginForm from "@/components/auth/LoginForm";
 import { Dropdown } from "antd";
 import { useEffect, useState } from "react";
+import { HiOutlineUserCircle } from "react-icons/hi2";
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,8 +42,9 @@ const UserMenu = () => {
     <div>
       <Dropdown
         open={isOpen}
-        placement="bottom"
+        placement="bottomLeft"
         className="drop"
+        overlayClassName="navbar-dropdown"
         menu={{
           items,
         }}
@@ -55,7 +57,7 @@ const UserMenu = () => {
         // className="drop"
         >
           <span onClick={handleClickUser}>
-            <i className="far fa-user"></i>
+            <HiOutlineUserCircle size={25} />
           </span>
         </a>
       </Dropdown>

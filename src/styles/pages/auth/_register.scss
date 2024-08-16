@@ -6,73 +6,74 @@
     align-items: center;
     flex-direction: column;
 
-    .form {
-        background-color: $white;
+}
+
+.form {
+    background-color: $white;
+    width: 100%;
+    border-radius: 10px;
+    padding: 40px;
+
+    -webkit-box-shadow: 0px 0px 66px -19px rgba(66, 134, 244, 0.64);
+    -moz-box-shadow: 0px 0px 66px -19px rgba(66, 134, 244, 0.64);
+    box-shadow: 0px 0px 66px -19px rgba(66, 134, 244, 0.64);
+
+    .resend_button {
+        background-color: transparent;
+        border: none;
+        color: $primary_color;
         width: 100%;
-        border-radius: 10px;
-        padding: 40px;
+        padding-bottom: 20px;
+    }
 
-        -webkit-box-shadow: 0px 0px 66px -19px rgba(66, 134, 244, 0.64);
-        -moz-box-shadow: 0px 0px 66px -19px rgba(66, 134, 244, 0.64);
-        box-shadow: 0px 0px 66px -19px rgba(66, 134, 244, 0.64);
+    .ant-otp {
+        column-gap: 40px;
+        width: 100%;
 
-        .resend_button {
-            background-color: transparent;
-            border: none;
-            color: $primary_color;
-            width: 100%;
-            padding-bottom: 20px;
-        }
-
-        .ant-otp {
-            column-gap: 40px;
-            width: 100%;
-
-            .ant-input {
-                padding: 16px 14px !important;
-                font-size: 16px;
-            }
-        }
-
-        .section_subtitle {
-            padding-bottom: 25px;
-        }
-
-        .default_form_item {
-            .ant-input-affix-wrapper {
-                box-shadow: none;
-            }
-
-        }
-
-        .default_input {
-            height: 45px;
-            width: 100%;
-            background-color: $primary_light;
-            border: 1px solid $border_light_blue;
-            border-radius: 6px;
+        .ant-input {
+            padding: 16px 14px !important;
             font-size: 16px;
-            font-weight: 500;
-            color: $text_gray;
-
-
-            &:focus {
-                box-shadow: none;
-            }
         }
+    }
 
-        .submit_button {
-            width: 100%;
-            padding: 10px 20px;
-            outline: none;
-            border: none;
-            background-color: $primary_color;
-            color: $white;
-            border-radius: 10px;
-            height: 45px;
-            font-weight: 600;
-            font-size: 16px;
+    .section_subtitle {
+        padding-bottom: 25px;
+    }
+
+    .default_form_item {
+        .ant-input-affix-wrapper {
+            box-shadow: none;
         }
 
     }
+
+    .default_input {
+        height: 45px;
+        width: 100%;
+        background-color: $primary_light;
+        border: 1px solid $border_light_blue;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 500;
+        color: $text_gray;
+
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .submit_button {
+        width: 100%;
+        padding: 10px 20px;
+        outline: none;
+        border: none;
+        background-color: $primary_color;
+        color: $white;
+        border-radius: 10px;
+        height: 45px;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
 }

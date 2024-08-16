@@ -1,11 +1,10 @@
+import axiosInstance from '@/lib/axios';
 import { Flex, Form, Input } from 'antd'
+import Cookies from 'js-cookie';
 import React, { useState } from 'react'
 import Countdown from 'react-countdown';
 
-const OptForm = ({ newCodeTimer, mount }) => {
-    const [otp, setOtp] = useState('')
-    const [loading, setLoading] = useState(false)
-    console.log(otp)
+const OptForm = ({ newCodeTimer, mount, setOtp, verifyOtp, loading, resendOtp }) => {
 
     const renderer = ({ seconds, completed }) => {
         if (completed) {
@@ -36,7 +35,7 @@ const OptForm = ({ newCodeTimer, mount }) => {
                 <Input.OTP className='otp_input' length={6} onChange={value => setOtp(value)} />
             </Flex>
 
-            <button className="submit_button mt-4" disabled={loading} type="primary" htmlType="submit">
+            <button onClick={() => verifyOtp()} className="submit_button mt-4" disabled={loading} type="primary">
                 Submit
                 {
                     loading && <Spin size='small' style={{ marginLeft: "10px" }} />

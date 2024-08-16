@@ -40,6 +40,10 @@
         background-color: $bg_dark;
 
         .main_nav {
+
+
+
+
             @media (max-width: 700px) {
                 display: none;
             }
@@ -486,6 +490,18 @@
     }
 }
 
+
+.navbar-dropdown {
+    padding-top: 10px;
+
+    .ant-dropdown-menu {
+        padding: 0px !important;
+
+        .ant-dropdown-menu-item {
+            padding: 0px;
+        }
+    }
+}
 
 
 .user_login_container {

@@ -13,12 +13,13 @@ const ResetForm = dynamic(
 const ForgotPassword = () => {
 
     const [active, setActive] = useState('otp')
+    const [email, setEmail] = useState('')
 
     return (
         <div className='gradient_bg'>
             <div className='main_container registration_form'>
-                {active === 'otp' && <ForgotPassForm setActive={setActive} />}
-                {active === 'reset' && <ResetForm setActive={setActive} />}
+                {active === 'otp' && <ForgotPassForm setActive={setActive} setEmail={setEmail} />}
+                {active === 'reset' && <ResetForm setActive={setActive} email={email} />}
             </div>
         </div>
     )

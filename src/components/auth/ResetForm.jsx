@@ -1,21 +1,38 @@
-import { Form, Input } from 'antd'
+import { Form, Input, Spin } from 'antd'
 import React, { useState } from 'react'
 import { BiLock } from 'react-icons/bi'
-import { MdSecurity } from 'react-icons/md'
-import { TbMail, TbPasswordMobilePhone } from 'react-icons/tb'
+import { TbPasswordMobilePhone } from 'react-icons/tb'
+import { notificationFunc } from '../global/notification'
+import axiosInstance from '@/lib/axios'
 
-const ResetForm = ({ setActive }) => {
+const ResetForm = ({ setActive, email }) => {
 
-    const [loading, setLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const onFinish = (values) => {
-        console.log(values)
-        setActive('reset')
-    }
+
+        setIsLoading(true)
+        axiosInstance.patch('/user/resetPassword/', { email, otp: values.otp, password: values.password })
+            .then(res => {
+                console.log(res.data)
+                if (res.data.success) {
+                    notificationFunc("success", "Password changed successfully")
+                    window.location.pathname = '/auth/login'
+                }
+                setIsLoading(false)
+            })
+            .catch(err => {
+                console.log(err);
+                setIsLoading(false)
+            })
+
+    };
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
+
     return (
         <Form
             className='form'
@@ -40,9 +57,6 @@ const ResetForm = ({ setActive }) => {
                 ]}
             >
                 <Input prefix={<TbPasswordMobilePhone size={20} />} placeholder="OTP" className='default_input' />
-                {/* <span className='icon'>
-                    
-                </span> */}
             </Form.Item>
             <Form.Item
                 name="password"
@@ -52,6 +66,14 @@ const ResetForm = ({ setActive }) => {
                         required: true,
                         message: 'Please input your password!',
                     },
+                    {
+                        min: 6,
+                        message: 'Password must be at least 6 charecters'
+                    },
+                    {
+                        whitespace: false,
+                        message: "Can't use space in password"
+                    }
                 ]}
                 hasFeedback
             >
@@ -82,10 +104,10 @@ const ResetForm = ({ setActive }) => {
             </Form.Item>
 
 
-            <button className="submit_button" disabled={loading} type="primary" htmlType="submit">
+            <button className="submit_button" disabled={isLoading} type="primary" htmlType="submit">
                 Reset Password
                 {
-                    loading && <Spin size='small' style={{ marginLeft: "10px" }} />
+                    isLoading && <Spin size='small' style={{ marginLeft: "10px" }} />
                 }
 
             </button>

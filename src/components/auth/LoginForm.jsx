@@ -103,8 +103,10 @@ const LoginForm = () => {
         />
       </Form.Item>
 
+      <p>Forgot Password? <Link href={'/auth/forgot-password'}>Reset Now</Link></p>
+
       <Form.Item>
-        <div className="d-flex justify-content-center pt-3">
+        <div className="d-flex justify-content-center">
           <Button
             size="lg"
             type="primary"

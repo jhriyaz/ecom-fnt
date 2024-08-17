@@ -1,15 +1,32 @@
-import React, { useState } from 'react'
-import { Form, Input } from 'antd'
+import React, { useEffect, useState } from 'react'
+import { Form, Input, Spin } from 'antd'
 import { TbMail } from 'react-icons/tb'
+import axiosInstance from '@/lib/axios'
+import { notificationFunc } from '../global/notification'
 
-const ForgotPassForm = ({ setActive }) => {
+const ForgotPassForm = ({ setActive, setEmail }) => {
 
-    const [loading, setLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const onFinish = (values) => {
-        console.log(values)
-        setActive('reset')
-    }
+        setIsLoading(true)
+        axiosInstance.post('/user/forgotPassword', values)
+            .then(res => {
+                console.log(res.data)
+                let { isOtpSend, success, token } = res.data
+                if (isOtpSend) {
+                    notificationFunc("success", "A code has been sent to your Email")
+                    setIsLoading(false)
+                    setActive('reset')
+                    setEmail(values.email)
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                setIsLoading(false)
+            })
+
+    };
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -44,10 +61,10 @@ const ForgotPassForm = ({ setActive }) => {
             </Form.Item>
 
 
-            <button className="submit_button" disabled={loading} type="primary" htmlType="submit">
+            <button className="submit_button" disabled={isLoading} type="primary" htmlType="submit">
                 Get OTP
                 {
-                    loading && <Spin size='small' style={{ marginLeft: "10px" }} />
+                    isLoading && <Spin size='small' style={{ marginLeft: "10px" }} />
                 }
 
             </button>

@@ -4,18 +4,11 @@ import axiosInstance from '@/lib/axios';
 // import { notificationFunc } from '@/components/global/notification';
 import Cookies from 'js-cookie';
 
-const RegisterForm = dynamic(
-    async () => await import('@/components/auth/RegisterForm'),
-    {
-        ssr: false
-    }
-);
-const OtpForm = dynamic(
-    async () => await import('@/components/auth/OptForm'),
-    {
-        ssr: false
-    }
-);
+
+import RegisterForm from '@/components/auth/RegisterForm'
+
+
+import OtpForm from '@/components/auth/OptForm'
 
 const Register = () => {
 

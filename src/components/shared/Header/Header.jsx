@@ -1,11 +1,8 @@
 import Link from "next/link";
 import Search from "./Search";
-import dynamic from "next/dynamic";
 import { HiMiniBars3CenterLeft, HiOutlineShoppingCart } from "react-icons/hi2";
 import { FaChevronDown } from "react-icons/fa";
-const UserMenu = dynamic(async () => await import("./UserMenu"), {
-  ssr: false,
-});
+import UserMenu from "./UserMenu";
 
 const Header = () => {
   return (

@@ -2,9 +2,10 @@
 import { Form, Input, Button, Checkbox, notification } from 'antd';
 
 notification.config({
-  placement: 'topBottom',
+  placement: 'topRight',
   bottom: 50,
   duration: 3,
+  // rtl: true,
 });
 
 

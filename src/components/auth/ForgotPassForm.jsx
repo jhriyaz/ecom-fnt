@@ -3,10 +3,12 @@ import { Form, Input, Spin } from 'antd'
 import { TbMail } from 'react-icons/tb'
 import axiosInstance from '@/lib/axios'
 import { notificationFunc } from '../global/notification'
+import { useRouter } from 'next/router'
 
-const ForgotPassForm = ({ setActive, setEmail }) => {
+const ForgotPassForm = ({ setEmail, email }) => {
 
     const [isLoading, setIsLoading] = useState(false)
+    const Router = useRouter()
 
     const onFinish = (values) => {
         setIsLoading(true)
@@ -17,12 +19,13 @@ const ForgotPassForm = ({ setActive, setEmail }) => {
                 if (isOtpSend) {
                     notificationFunc("success", "A code has been sent to your Email")
                     setIsLoading(false)
-                    setActive('reset')
+                    Router.push('/auth/forgot-password?step=reset')
                     setEmail(values.email)
                 }
             })
             .catch(err => {
                 console.log(err);
+                notificationFunc('error', err?.response?.data?.error)
                 setIsLoading(false)
             })
 
@@ -46,6 +49,7 @@ const ForgotPassForm = ({ setActive, setEmail }) => {
             <Form.Item
                 name="email"
                 className="default_form_item"
+                initialValue={email}
                 rules={[
                     {
                         type: 'email',

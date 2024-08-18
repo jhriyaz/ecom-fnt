@@ -4,10 +4,13 @@ import { BiLock } from 'react-icons/bi'
 import { TbPasswordMobilePhone } from 'react-icons/tb'
 import { notificationFunc } from '../global/notification'
 import axiosInstance from '@/lib/axios'
+import { useRouter } from 'next/router'
 
-const ResetForm = ({ setActive, email }) => {
+const ResetForm = ({ email }) => {
 
     const [isLoading, setIsLoading] = useState(false)
+
+    const Router = useRouter()
 
     const onFinish = (values) => {
 
@@ -22,7 +25,8 @@ const ResetForm = ({ setActive, email }) => {
                 setIsLoading(false)
             })
             .catch(err => {
-                console.log(err);
+                console.log(err.response);
+                notificationFunc('error', err.response?.data?.error)
                 setIsLoading(false)
             })
 
@@ -112,7 +116,7 @@ const ResetForm = ({ setActive, email }) => {
 
             </button>
 
-            <p className='text_primary text-center pt-3' onClick={() => setActive('otp')}>Change Email</p>
+            <p className='text_primary text-center pt-3' onClick={() => Router.push('/auth/forgot-password?step=otp')}>Change Email</p>
         </Form >
     )
 }

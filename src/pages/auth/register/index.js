@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic';
 import axiosInstance from '@/lib/axios';
-// import { notificationFunc } from '@/components/global/notification';
+import { notificationFunc } from '@/components/global/notification';
 import Cookies from 'js-cookie';
 
 

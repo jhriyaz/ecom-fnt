@@ -45,9 +45,15 @@ const UserMenu = () => {
         placement="bottomLeft"
         className="drop"
         overlayClassName="navbar-dropdown"
-        menu={{
-          items,
-        }}
+        // menu={{
+        //   items,
+        // }}
+        trigger={['click']}
+        dropdownRender={() => (
+          <div onClick={(e) => e.stopPropagation()}>
+            <LoginForm setIsOpen={setIsOpen} />
+          </div>
+        )}
       >
         <a
           onClick={(e) => {

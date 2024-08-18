@@ -1,8 +1,6 @@
 import { Button, Divider, Form, Input, Spin } from "antd";
 import { MdEmail } from "react-icons/md";
-import { CiLock } from "react-icons/ci";
 import { useState } from "react";
-import axiosInstance from "@/lib/axios";
 import Cookies from "js-cookie";
 import { Toaster, toast } from "sonner";
 import { useAppDispatch } from "@/redux/hooks";
@@ -12,33 +10,25 @@ import { verifyUser } from "@/redux/features/user/userAsyncActions";
 import { BiLock } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
+import { notificationFunc } from "../global/notification";
 
-const LoginForm = () => {
+const LoginForm = ({ setIsOpen }) => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const onFinish = (data) => {
     if (Object.values(data).length > 1) {
-      // axiosInstance.post("/user/signin", data).then((res) => {
-      //   if (res.status === 200) {
-      //     setLoading(false);
-      //     const token = res?.data?.token;
-      //     Cookies.set(process.env.NEXT_PUBLIC_ECOMM_USER, token);
-      //     toast.success("Logged in successfully");
-      //     setTimeout(() => {
-      //       window.location.href = "/profile";
-      //     }, 1000);
-      //   }
-      // });
 
       dispatch(doLogin(data))
         .then((result) => {
           if (doLogin.fulfilled.match(result)) {
             const token = result?.payload?.token;
             Cookies.set(process.env.NEXT_PUBLIC_ECOMM_USER, token);
-            toast.success("Logged in successfully");
-
+            notificationFunc('success', "Logged in successfully")
+            if (setIsOpen) {
+              setIsOpen(false)
+            }
             //load user
             dispatch(verifyUser());
 
@@ -47,7 +37,7 @@ const LoginForm = () => {
               router.push("/profile");
             }, 1000);
           } else if (doLogin.rejected.match(result)) {
-            toast.error("User fails to login");
+            notificationFunc('error', "User fails to login")
           }
         })
         .catch((err) => {

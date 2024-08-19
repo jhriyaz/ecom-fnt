@@ -7,9 +7,9 @@ export const doLogin = createAsyncThunk(
     try {
       return await authService.login(userData);
     } catch (error) {
-      console.log("error", error);
+      console.log(error.response?.data?.message);
+      return thunkAPI.rejectWithValue(error.response?.data?.message)
 
-      // return thunkAPI.rejectWithValue(error)
     }
   }
 );

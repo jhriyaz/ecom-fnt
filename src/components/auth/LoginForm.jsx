@@ -11,10 +11,11 @@ import { BiLock } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 import { notificationFunc } from "../global/notification";
+import { useSelector } from "react-redux";
 
 const LoginForm = ({ setIsOpen }) => {
   const dispatch = useAppDispatch();
-  const [loading, setLoading] = useState(false);
+  const { isLoading, message } = useSelector(s => s.auth)
   const router = useRouter();
 
   const onFinish = (data) => {
@@ -25,7 +26,7 @@ const LoginForm = ({ setIsOpen }) => {
           if (doLogin.fulfilled.match(result)) {
             const token = result?.payload?.token;
             Cookies.set(process.env.NEXT_PUBLIC_ECOMM_USER, token);
-            notificationFunc('success', "Logged in successfully")
+            notificationFunc('success', message)
             if (setIsOpen) {
               setIsOpen(false)
             }
@@ -37,7 +38,7 @@ const LoginForm = ({ setIsOpen }) => {
               router.push("/profile");
             }, 1000);
           } else if (doLogin.rejected.match(result)) {
-            notificationFunc('error', "User fails to login")
+            notificationFunc('error', message)
           }
         })
         .catch((err) => {
@@ -93,7 +94,7 @@ const LoginForm = ({ setIsOpen }) => {
         />
       </Form.Item>
 
-      <p>Forgot Password? <Link href={'/auth/forgot-password'}>Reset Now</Link></p>
+      <p>Forgot Password? <Link onClick={() => setIsOpen && setIsOpen(false)} href={'/auth/forgot-password'}>Reset Now</Link></p>
 
       <Form.Item>
         <div className="d-flex justify-content-center">
@@ -103,7 +104,7 @@ const LoginForm = ({ setIsOpen }) => {
             htmlType="submit"
             className="submit_button"
           >
-            {loading ? (
+            {isLoading ? (
               <div>
                 <Spin size="small" />
                 Logging..
@@ -117,14 +118,14 @@ const LoginForm = ({ setIsOpen }) => {
 
       <Divider className='fs-6 text_gray'>Or Login With</Divider>
 
-      <button htmlType="button" className='default_input'>
+      <button htmlType="button" className='default_input' onClick={() => setIsOpen && setIsOpen(false)}>
         <div className='d-flex align-items-center justify-content-center gap-2'>
           <FcGoogle size={20} />
           Continue with Google
         </div>
       </button>
 
-      <p className='text-center fs-6 text_gray fw-semibold pt-3'>Don't have an account? <Link href={'/auth/register'}>Register</Link></p>
+      <p className='text-center fs-6 text_gray fw-semibold pt-3'>Don't have an account? <Link onClick={() => setIsOpen && setIsOpen(false)} href={'/auth/register'}>Register</Link></p>
     </Form>
   );
 };

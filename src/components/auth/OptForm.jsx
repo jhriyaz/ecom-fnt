@@ -1,4 +1,3 @@
-import axiosInstance from '@/lib/axios';
 import { Flex, Form, Input } from 'antd'
 import Cookies from 'js-cookie';
 import React, { useState } from 'react'

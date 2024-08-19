@@ -10,7 +10,7 @@ const FeaturedProduct = () => {
 
   useEffect(() => {
     const fetchFeaturedProducts = () => {
-      axiosInstance
+      axios
         .get("/product/getFeatured")
         .then((res) => {
           if (res.data?.success) {
@@ -39,8 +39,8 @@ const FeaturedProduct = () => {
           autoplay={{
             delay: 3000,
           }}
-          // slidesPerView={2}
-          // navigation={true}
+        // slidesPerView={2}
+        // navigation={true}
         >
           {featuredProduct?.length > 0 &&
             featuredProduct?.map((product) => (
@@ -91,7 +91,7 @@ const FeaturedProduct = () => {
                                   {product.price -
                                     Math.floor(
                                       product.price *
-                                        (product.discount.value / 100)
+                                      (product.discount.value / 100)
                                     )}
                                 </span>
                               )}

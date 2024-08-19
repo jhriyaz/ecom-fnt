@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { BiLock } from 'react-icons/bi'
 import { TbPasswordMobilePhone } from 'react-icons/tb'
 import { notificationFunc } from '../global/notification'
-import axiosInstance from '@/lib/axios'
 import { useRouter } from 'next/router'
+import axiosInstance from "@/lib/axios";
 
 const ResetForm = ({ email }) => {
 

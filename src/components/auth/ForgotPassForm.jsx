@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Form, Input, Spin } from 'antd'
 import { TbMail } from 'react-icons/tb'
-import axiosInstance from '@/lib/axios'
 import { notificationFunc } from '../global/notification'
 import { useRouter } from 'next/router'
+import axiosInstance from "@/lib/axios";
 
 const ForgotPassForm = ({ setEmail, email }) => {
 

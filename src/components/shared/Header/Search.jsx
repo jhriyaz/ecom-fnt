@@ -12,7 +12,7 @@ const Search = () => {
         return setSearchedProducts([]);
       }
 
-      axiosInstance
+      axios
         .get(`/product/getSearchProducts?search=${query.trim()}`)
         .then((res) => {
           setSearchedProducts(res.data?.products);

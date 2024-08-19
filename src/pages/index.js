@@ -1,10 +1,8 @@
-import Head from "next/head";
+
 import { Inter } from "next/font/google";
-import Header from "@/components/shared/Header/Header";
 import SliderComp from "@/components/home/SliderComp";
 import BasicService from "@/components/home/BasicService";
 import dynamic from "next/dynamic";
-import axios from "axios";
 import HeadComp from "@/components/shared/HeadComp";
 import CategoriesList from "@/components/home/CategoriesList";
 // import FeaturedProduct from "@/components/home/FeaturedProduct";
@@ -49,7 +47,7 @@ export default function Home({ featuredProduct }) {
 
 // export async function getServerSideProps() {
 //   try {
-//     const res = await axios.get(
+//     const res = await axiosInstance.get(
 //       "/product/getFeatured"
 //     );
 //     if (res.data?.success) {

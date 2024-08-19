@@ -35,11 +35,11 @@ const authSlice = createSlice({
         state.isSuccess = true;
         state.message = "User logged in successfully";
       })
-      .addCase(doLogin.rejected, (state) => {
+      .addCase(doLogin.rejected, (state, action) => {
         state.isLoading = false;
         state.isAuthenticated = false;
         state.isSuccess = false;
-        state.message = "User fails to login";
+        state.message = action.payload || "User fails to login";
         state.isError = true;
       });
   },

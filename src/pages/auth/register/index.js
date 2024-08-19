@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import dynamic from 'next/dynamic';
-import axiosInstance from '@/lib/axios';
 import { notificationFunc } from '@/components/global/notification';
 import Cookies from 'js-cookie';
-
-
 import RegisterForm from '@/components/auth/RegisterForm'
-
-
 import OtpForm from '@/components/auth/OptForm'
+import axiosInstance from "@/lib/axios";;
 
 const Register = () => {
 

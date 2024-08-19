@@ -8,7 +8,7 @@ const SliderComp = () => {
   const [sliders, setSliders] = useState([]);
 
   useEffect(() => {
-    axiosInstance
+    axios
       .get("/settings/getsliders")
       .then((res) => setSliders(res.data?.sliders))
       .catch((err) => console.log(err));
@@ -28,7 +28,7 @@ const SliderComp = () => {
         autoplay={{
           delay: 3000,
         }}
-        // slidesPerView={2}
+      // slidesPerView={2}
       >
         {sliders?.map((slider) => (
           <SwiperSlide key={slider?.index}>

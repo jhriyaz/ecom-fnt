@@ -9,7 +9,6 @@ export const doLogin = createAsyncThunk(
     } catch (error) {
       console.log(error.response?.data?.message);
       return thunkAPI.rejectWithValue(error.response?.data?.message)
-
     }
   }
 );

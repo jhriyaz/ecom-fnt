@@ -10,7 +10,7 @@ const FeaturedProduct = () => {
 
   useEffect(() => {
     const fetchFeaturedProducts = () => {
-      axios
+      axiosInstance
         .get("/product/getFeatured")
         .then((res) => {
           if (res.data?.success) {

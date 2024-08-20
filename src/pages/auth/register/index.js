@@ -3,7 +3,9 @@ import { notificationFunc } from '@/components/global/notification';
 import Cookies from 'js-cookie';
 import RegisterForm from '@/components/auth/RegisterForm'
 import OtpForm from '@/components/auth/OptForm'
-import axiosInstance from "@/lib/axios";;
+import axiosInstance from "@/lib/axios";
+import { useSelector } from 'react-redux';
+
 
 const Register = () => {
 
@@ -13,16 +15,17 @@ const Register = () => {
     const [mount, setMount] = useState(true)
     const [email, setEmail] = useState('')
     const [error, setError] = useState(null)
-    const [isHydrated, setIsHydrated] = useState(false)
     const [otp, setOtp] = useState('')
 
     const verifyOtp = () => {
         if (otp.length === 6) {
             axiosInstance.post('/user/verifyotp', { email, otp })
                 .then(res => {
+                    console.log(res.data)
                     if (res.data.success) {
                         Cookies.set("myshop_auth2", res.data.token);
                         notificationFunc("success", "Registered successfully")
+
                         setTimeout(() => {
                             window.location.pathname = '/'
                         }, 3000);
@@ -63,7 +66,6 @@ const Register = () => {
         setLoading(true)
         axiosInstance.post('/user/signup', values)
             .then(res => {
-
                 if (res.data.isOtpSend) {
                     setError(null)
                     setIsOtpSend(true)
@@ -76,7 +78,6 @@ const Register = () => {
                     setNewCodeTimer(Date.now() + 59000)
                 }
                 setLoading(false)
-
             })
             .catch(err => {
                 console.log(err)
@@ -86,17 +87,11 @@ const Register = () => {
             })
 
     };
+
+
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-
-    useEffect(() => {
-        setIsHydrated(true)
-    }, [])
-
-    if (!isHydrated) {
-        return null
-    }
 
     return (
         <div className='gradient_bg'>

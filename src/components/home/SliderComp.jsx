@@ -8,7 +8,7 @@ const SliderComp = () => {
   const [sliders, setSliders] = useState([]);
 
   useEffect(() => {
-    axios
+    axiosInstance
       .get("/settings/getsliders")
       .then((res) => setSliders(res.data?.sliders))
       .catch((err) => console.log(err));

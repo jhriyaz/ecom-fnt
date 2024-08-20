@@ -7,10 +7,11 @@ export const verifyUser = createAsyncThunk(
   "user/verify",
   async (_data, thunkAPI) => {
     try {
-      thunkAPI.dispatch(setAuthenticated(true));
+      // thunkAPI.dispatch(setAuthenticated(true));
 
       return await userService.verifyUser();
     } catch (error) {
+      console.log(error)
       const message =
         (error?.response &&
           error?.response?.data &&

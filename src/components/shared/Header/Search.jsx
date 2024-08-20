@@ -1,4 +1,5 @@
 import axiosInstance from "@/lib/axios";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -12,7 +13,7 @@ const Search = () => {
         return setSearchedProducts([]);
       }
 
-      axios
+      axiosInstance
         .get(`/product/getSearchProducts?search=${query.trim()}`)
         .then((res) => {
           setSearchedProducts(res.data?.products);
@@ -30,10 +31,7 @@ const Search = () => {
   return (
     <div className="search_wrapper">
       <div className="input_wrapper">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7.33337 13.3333C10.6471 13.3333 13.3334 10.647 13.3334 7.33333C13.3334 4.01962 10.6471 1.33333 7.33337 1.33333C4.01967 1.33333 1.33337 4.01962 1.33337 7.33333C1.33337 10.647 4.01967 13.3333 7.33337 13.3333Z" stroke="white" stroke-opacity="0.7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M12.62 13.7932C12.9733 14.8599 13.78 14.9665 14.4 14.0332C14.9667 13.1799 14.5933 12.4799 13.5667 12.4799C12.8067 12.4732 12.38 13.0665 12.62 13.7932Z" stroke="white" stroke-opacity="0.7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+        <Image height={20} width={20} src={'/svgs/search_icon.svg'} alt="search-icon" />
         <input
           //   onKeyDown={(e) => handleKey(e)}
           value={query}

@@ -26,8 +26,9 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(doLogin.pending, (state) => {
+      .addCase(doLogin.pending, (state, action) => {
         state.isLoading = true;
+        console.log(action.payload)
       })
       .addCase(doLogin.fulfilled, (state) => {
         state.isLoading = false;

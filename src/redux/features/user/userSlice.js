@@ -23,7 +23,7 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(verifyUser.pending, (state) => {
+      .addCase(verifyUser.pending, (state, action) => {
         state.isLoading = true;
       })
       .addCase(verifyUser.fulfilled, (state, action) => {

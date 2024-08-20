@@ -34,7 +34,6 @@ const LoginForm = ({ setIsOpen }) => {
             dispatch(verifyUser());
 
             setTimeout(() => {
-              // window.location.href = "/profile"; // to navigate with reload
               router.push("/profile");
             }, 1000);
           } else if (doLogin.rejected.match(result)) {

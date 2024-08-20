@@ -1,12 +1,6 @@
-import dynamic from 'next/dynamic'
+import LoginForm from '@/components/auth/LoginForm'
 import React from 'react'
 
-const LoginForm = dynamic(
-    async () => await import('@/components/auth/LoginForm'),
-    {
-        ssr: false
-    }
-)
 
 const Login = () => {
     return (

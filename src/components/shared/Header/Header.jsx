@@ -1,13 +1,11 @@
 import Link from "next/link";
 import Search from "./Search";
-import { HiMiniBars3CenterLeft, HiOutlineShoppingCart } from "react-icons/hi2";
+import { HiMiniBars3CenterLeft, HiOutlineShoppingCart, HiOutlineUserCircle } from "react-icons/hi2";
 import { FaChevronDown } from "react-icons/fa";
 import UserMenu from "./UserMenu";
-import { useSelector } from "react-redux";
 
 const Header = () => {
 
-  const { user, isAuthenticated } = useSelector(state => state.auth)
 
   return (
     <header id="header">
@@ -36,6 +34,7 @@ const Header = () => {
                                     isAuthenticated && <NotificationComp />
                                 } */}
               <UserMenu />
+
             </div>
           </div>
         </nav>

@@ -5,7 +5,7 @@ notification.config({
   placement: 'topRight',
   bottom: 50,
   duration: 3,
-  // rtl: true,
+  rtl: true,
 });
 
 

@@ -1,15 +1,20 @@
 import LoginForm from "@/components/auth/LoginForm";
 import { reset } from "@/redux/features/auth/authSlice";
-import { Dropdown } from "antd";
+import { Drawer, Dropdown } from "antd";
 import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { HiOutlineUserCircle } from "react-icons/hi2";
 import { useDispatch, useSelector } from "react-redux";
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [userDrawer, setUserDrawer] = useState(false)
   const dispatch = useDispatch()
   const { isAuthenticated } = useSelector(s => s.auth)
+  const { userInfo } = useSelector(s => s.user)
+
+  const Router = useRouter()
 
   useEffect(() => {
     const handleDocumentClick = (event) => {
@@ -29,16 +34,16 @@ const UserMenu = () => {
   }, []);
 
 
-  console.log(isAuthenticated)
-
   const handleLogout = () => {
     Cookies.remove("myshop_auth2");
-    window.location.pathname = '/'
+    Router.push('/')
     dispatch(reset())
+    setUserDrawer(false)
+    setIsOpen(false)
   }
 
   const handleDropdown = () => {
-    setIsOpen(!isOpen)
+    !isAuthenticated ? setIsOpen(!isOpen) : setUserDrawer(!userDrawer)
   }
 
   return (
@@ -54,12 +59,7 @@ const UserMenu = () => {
         trigger={['click']}
         dropdownRender={() => (
           <div onClick={(e) => e.stopPropagation()}>
-            {
-              !isAuthenticated ? <LoginForm setIsOpen={setIsOpen} /> :
-                <div className="form" style={{ minWidth: '200px' }}>
-                  <button className="default_input" onClick={handleLogout}>Logout</button>
-                </div>
-            }
+            <LoginForm setIsOpen={setIsOpen} />
           </div>
         )}
       >
@@ -75,6 +75,24 @@ const UserMenu = () => {
           </span>
         </a>
       </Dropdown>
+
+      <Drawer
+        className="sidebar_drawer"
+        title={
+          <div className="header">
+
+            <h3 className="title">{userInfo?.user?.name}</h3>
+            <button className="primary_outline_btn" onClick={handleLogout}>Logout</button>
+
+          </div>
+        }
+        placement={"left"}
+        closable={false}
+        onClose={() => setUserDrawer(false)}
+        open={userDrawer}
+        key={'lest'}
+      >
+      </Drawer>
     </div>
   );
 };

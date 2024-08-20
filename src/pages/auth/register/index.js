@@ -17,6 +17,9 @@ const Register = () => {
     const [error, setError] = useState(null)
     const [otp, setOtp] = useState('')
 
+
+    console.log(email)
+
     const verifyOtp = () => {
         if (otp.length === 6) {
             axiosInstance.post('/user/verifyotp', { email, otp })

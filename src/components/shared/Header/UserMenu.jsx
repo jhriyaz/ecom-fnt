@@ -33,6 +33,8 @@ const UserMenu = () => {
     };
   }, []);
 
+  console.log(userInfo)
+
 
   const handleLogout = () => {
     Cookies.remove("myshop_auth2");

@@ -82,7 +82,6 @@ const UserMenu = () => {
         className="sidebar_drawer"
         title={
           <div className="header">
-
             <h3 className="title">{userInfo?.user?.name}</h3>
             <button className="primary_outline_btn" onClick={handleLogout}>Logout</button>
 

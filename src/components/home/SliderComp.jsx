@@ -21,10 +21,11 @@ const SliderComp = () => {
           dynamicBullets: true,
           clickable: true,
         }}
+        spaceBetween={50}
         modules={[Pagination, FreeMode, Autoplay]}
         className="mySwiper"
         loop={true}
-        freeMode={true}
+        // freeMode={true}
         autoplay={{
           delay: 3000,
         }}

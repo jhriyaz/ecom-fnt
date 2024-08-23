@@ -23,18 +23,7 @@ export default function Home({ featuredProduct }) {
       {/* <Header /> */}
       <div id="home">
         <div className="main_container">
-          <div className="row hero">
-            <div className="col-lg-3">
-              <CategoriesList />
-            </div>
-
-            <div className="col-lg-9 col-md-12">
-              <div className="slider_container">
-                <SliderComp />
-                <BasicService />
-              </div>
-            </div>
-          </div>
+          <SliderComp />
 
           <div className="featured">
             <FeaturedProduct featuredProduct={featuredProduct} />

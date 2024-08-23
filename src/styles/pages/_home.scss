@@ -9,6 +9,11 @@
         object-fit: cover;
         height: 550px;
         width: 100%;
+
+        @media screen and (max-width: 1440px) {
+          height: auto;
+          object-fit: contain;
+        }
       }
     }
   }
@@ -19,6 +24,14 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
 
+    @media screen and (max-width: 1080px) {
+      gap: 20px;
+    }
+
+    @media screen and (max-width: 560px) {
+      grid-template-columns: 1fr;
+    }
+
     .info_item {
       border-radius: 10px;
       padding: 20px;
@@ -26,17 +39,46 @@
       align-items: center;
       gap: 30px;
 
+      @media screen and (max-width: 1080px) {
+        gap: 20px;
+        text-align: center;
+      }
+
+      @media screen and (max-width: 860px) {
+        flex-direction: column;
+      }
+
       .text {
         p {
           font-size: 20px;
           color: $text_gray;
           font-weight: 600;
+
+          @media screen and (max-width: 1080px) {
+            font-size: 16px;
+          }
+
+          @media screen and (max-width: 740px) {
+            font-size: 14px;
+          }
         }
 
         h3 {
           font-size: 30px;
           color: $text_black;
           font-weight: 700;
+
+          @media screen and (max-width: 1360px) {
+            font-size: 24px;
+          }
+
+          @media screen and (max-width: 1080px) {
+            font-size: 20px;
+          }
+
+          @media screen and (max-width: 740px) {
+            font-size: 18px;
+          }
         }
       }
 
@@ -45,7 +87,7 @@
 
         .icon {
           background-color: #FBBC05;
-          border: 12px solid #ffffffbe;
+          border-color: #ffffffbe;
         }
       }
 
@@ -54,7 +96,7 @@
 
         .icon {
           background-color: #F4847A;
-          border: 12px solid #ffffffbe;
+          border-color: #ffffffbe;
         }
       }
 
@@ -63,7 +105,7 @@
 
         .icon {
           background-color: #D4A0F9;
-          border: 12px solid #ffffffbe;
+          border-color: #ffffffbe;
         }
       }
 
@@ -74,6 +116,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border: 12px solid;
+
+        @media screen and (max-width: 1080px) {
+          width: 70px;
+          height: 70px;
+          border: 8px solid;
+
+          img {
+            height: 20px;
+          }
+        }
       }
     }
   }

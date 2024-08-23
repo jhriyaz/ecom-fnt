@@ -25,6 +25,8 @@ export default function Home({ featuredProduct }) {
         <div className="main_container">
           <SliderComp />
 
+          <BasicService />
+
           <div className="featured">
             <FeaturedProduct featuredProduct={featuredProduct} />
           </div>

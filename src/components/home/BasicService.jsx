@@ -1,14 +1,17 @@
 import { basicServices } from "@/staticData/home/home";
+import Image from "next/image";
 
 const BasicService = () => {
   return (
-    <div className="site_info_policy">
+    <div className="basic-services">
       {basicServices?.map((service) => (
         <div key={service?.id} className="info_item">
-          <div className="icon">{service?.Icon}</div>
+          <div className="icon">
+            <Image src={service?.Icon} height={35} width={35} alt="car svg" />
+          </div>
           <div className="text">
-            <span>{service?.title}</span>
-            <span>{service?.status}</span>
+            <p>{service?.title}</p>
+            <h3>{service?.status}</h3>
           </div>
         </div>
       ))}

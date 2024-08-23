@@ -5,31 +5,22 @@ import BasicService from "@/components/home/BasicService";
 import dynamic from "next/dynamic";
 import HeadComp from "@/components/shared/HeadComp";
 import CategoriesList from "@/components/home/CategoriesList";
-// import FeaturedProduct from "@/components/home/FeaturedProduct";
+import FeaturedProduct from "@/components/home/FeaturedProduct";
 
-const FeaturedProduct = dynamic(
-  async () => await import("@/components/home/FeaturedProduct"),
-  {
-    ssr: false,
-  }
-);
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ featuredProduct }) {
   return (
     <>
       <HeadComp />
-      {/* <Header /> */}
       <div id="home">
         <div className="main_container">
           <SliderComp />
 
           <BasicService />
 
-          <div className="featured">
-            <FeaturedProduct featuredProduct={featuredProduct} />
-          </div>
+
+          <FeaturedProduct featuredProduct={featuredProduct} />
+
         </div>
       </div>
     </>

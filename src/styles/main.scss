@@ -5,10 +5,11 @@
 
 //components
 @import "./components/header";
-@import "./components/categoriesList";
-@import "./components/basicService";
-@import "./components/featuredProduct";
+@import "./components/home/basicService";
+@import "./components/home/categoriesList";
+@import "./components/home/featuredProduct";
 @import "./components/product/productDetails";
+@import "./components/home/latestProducts";
 @import "./components/sidebar";
 
 //pages

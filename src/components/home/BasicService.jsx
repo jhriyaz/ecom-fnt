@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const BasicService = () => {
   return (
-    <div className="basic-services">
+    <div className="basic-services main_container">
       {basicServices?.map((service) => (
         <div key={service?.id} className="info_item">
           <div className="icon">

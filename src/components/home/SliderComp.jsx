@@ -15,7 +15,7 @@ const SliderComp = () => {
   }, []);
 
   return (
-    <div className="home_slider">
+    <div className="home_slider main_container">
       <Swiper
         pagination={{
           dynamicBullets: true,

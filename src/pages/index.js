@@ -6,21 +6,24 @@ import dynamic from "next/dynamic";
 import HeadComp from "@/components/shared/HeadComp";
 import CategoriesList from "@/components/home/CategoriesList";
 import FeaturedProduct from "@/components/home/FeaturedProduct";
+import LatestProducts from "@/components/home/LatestProducts";
 
 
-export default function Home({ featuredProduct }) {
+export default function Home() {
   return (
     <>
       <HeadComp />
       <div id="home">
-        <div className="main_container">
+        <div className="">
           <SliderComp />
 
           <BasicService />
 
 
-          <FeaturedProduct featuredProduct={featuredProduct} />
+          <FeaturedProduct />
+          <LatestProducts />
 
+          {/* <CategoriesList /> */}
         </div>
       </div>
     </>

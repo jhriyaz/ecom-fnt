@@ -1,9 +1,12 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, FreeMode, Autoplay } from "swiper/modules";
+import { Navigation, FreeMode, Autoplay, Pagination, EffectCreative } from "swiper/modules";
 import { Divider, Rate } from "antd";
 import axiosInstance from "@/lib/axios";
+
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const FeaturedProduct = () => {
   const [featuredProduct, setFeturedProduct] = useState([]);
@@ -30,13 +33,28 @@ const FeaturedProduct = () => {
 
       <div className="section_content">
         <Swiper
-          pagination={{
-            // dynamicBullets: true,
-            clickable: true,
+          breakpoints={{
+            480: {
+              slidesPerView: 2
+            },
+            860: {
+              slidesPerView: 3
+            },
+
+            1200: {
+              slidesPerView: 4
+            },
+
+            1440: {
+              slidesPerView: 5
+            }
+          }}
+          navigation={{
+            nextEl: '#featured_next_el',
+            prevEl: '#featured_prev_el'
           }}
           spaceBetween={20}
-          slidesPerView={5}
-          modules={[FreeMode, Autoplay, Navigation]}
+          modules={[FreeMode, Autoplay, Navigation, Pagination]}
           className="mySwiper"
           loop={true}
           freeMode={true}
@@ -114,6 +132,14 @@ const FeaturedProduct = () => {
               </SwiperSlide>
             ))}
         </Swiper>
+        <div className="navigation_buttons">
+          <button id="featured_next_el">
+            <Image src={'/svgs/home/nextEl.svg'} height={30} width={30} alt="next button" />
+          </button>
+          <button id="featured_prev_el">
+            <Image src={'/svgs/home/prevEl.svg'} height={30} width={30} alt="next button" />
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,45 +1,112 @@
 .featured_product {
 
-  .product_card {
-    background-color: $bg_gray;
-    border-radius: 10px;
-    padding: 20px;
+  .section_content {
+    position: relative;
 
-    .title {
-      font-size: 16px;
-      color: $text_gray;
-      font-weight: 500;
-      padding-top: 20px;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-    }
-
-    .product-price {
-
-      display: flex;
-      justify-content: space-between;
-
-      .new-price {
-        font-weight: 800;
-        color: $text_black;
-        font-size: 20px;
-      }
-
-      .old-price {
-        text-decoration: line-through;
-        padding-left: 10px;
-        font-size: 14px;
-        color: $text_gray;
-        font-weight: 500;
-      }
-
-      .rating {
+    .navigation_buttons {
+      button {
+        height: 50px;
+        width: 50px;
         display: flex;
         align-items: center;
-        gap: 5px;
+        justify-content: center;
+        cursor: pointer;
+        border: none;
+        border-radius: 50%;
+        background-color: $white;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        box-shadow: -1px 1px 19px -1px rgba(0, 0, 0, 0.35);
+        -webkit-box-shadow: -1px 1px 19px -1px rgba(0, 0, 0, 0.35);
+        -moz-box-shadow: -1px 1px 19px -1px rgba(0, 0, 0, 0.35);
+
+        @media screen and (max-width: 840px) {
+          width: 45px;
+          height: 45px;
+        }
+
+
+        @media screen and (max-width: 640px) {
+          width: 40px;
+          height: 40px;
+
+          img {
+            height: 25px;
+            width: 25px;
+          }
+        }
       }
+
+      #featured_next_el {
+        left: -25px;
+        z-index: 20;
+
+        @media screen and (max-width: 1440px) {
+          left: 0px;
+        }
+      }
+
+      #featured_prev_el {
+
+        right: -25px;
+        z-index: 20;
+
+        @media screen and (max-width: 1440px) {
+          right: 0;
+        }
+      }
+    }
+
+    .product_card {
+      background-color: $bg_gray;
+      border-radius: 10px;
+      padding: 20px;
+
+      .title {
+        font-size: 16px;
+        color: $text_gray;
+        font-weight: 500;
+        padding-top: 20px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .produc_image {
+        img {
+          object-fit: contain;
+        }
+      }
+
+      .product-price {
+
+        display: flex;
+        justify-content: space-between;
+
+        .new-price {
+          font-weight: 800;
+          color: $text_black;
+          font-size: 20px;
+        }
+
+        .old-price {
+          text-decoration: line-through;
+          padding-left: 10px;
+          font-size: 14px;
+          color: $text_gray;
+          font-weight: 500;
+        }
+
+        .rating {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+      }
+
     }
 
   }
+
 }

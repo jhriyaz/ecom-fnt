@@ -35,7 +35,7 @@ const RegisterForm = ({ onFinishFailed, onFinish, loading }) => {
 
     const handleGoogleSignIn = () => {
         const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
-        const redirectUri = 'http://localhost:3001/auth/google';
+        const redirectUri = 'http://localhost:3001';
         const scope = 'openid profile email';
         const responseType = 'token id_token'; // Request both access token and id_token
         const nonce = process.env.NEXT_SECRET

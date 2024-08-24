@@ -7,6 +7,7 @@ import HeadComp from "@/components/shared/HeadComp";
 import CategoriesList from "@/components/home/CategoriesList";
 import FeaturedProduct from "@/components/home/FeaturedProduct";
 import LatestProducts from "@/components/home/LatestProducts";
+import ShopByCategory from "@/components/home/ShopByCategory";
 
 
 export default function Home() {
@@ -22,6 +23,8 @@ export default function Home() {
 
           <FeaturedProduct />
           <LatestProducts />
+
+          <ShopByCategory />
 
           {/* <CategoriesList /> */}
         </div>

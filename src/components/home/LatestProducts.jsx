@@ -24,7 +24,6 @@ const LatestProducts = () => {
         fetchLatestProduct()
     }, [])
 
-    console.log(LatestProducts)
 
     return (
         <div className='latest_products'>

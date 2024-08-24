@@ -10,7 +10,7 @@ import { notificationFunc } from "@/components/global/notification";
 import { useRouter } from "next/router";
 
 export default function StoreProvider({ children }) {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const Router = useRouter()
 
 
@@ -18,7 +18,6 @@ export default function StoreProvider({ children }) {
     const hash = window.location.hash;
     const params = new URLSearchParams(hash.substring(1));
 
-    const accessToken = params.get('access_token');
     const idToken = params.get('id_token');
 
     if (idToken) {
@@ -28,7 +27,8 @@ export default function StoreProvider({ children }) {
           console.log(res)
           Cookies.set("myshop_auth2", res.data.token);
           notificationFunc("success", "Logged in successfully")
-          window.location.pathname = '/'
+          userVarify()
+          Router.push('/')
         })
         .catch(err => {
           notificationFunc("error", "failed to login.Please try again later")
@@ -39,29 +39,33 @@ export default function StoreProvider({ children }) {
   }, []);
 
 
-  useEffect(() => {
-    //dispatch the user and handle the loading state
+  const userVarify = () => {
     store
       .dispatch(verifyUser())
       .then((result) => {
         if (verifyUser.fulfilled.match(result)) {
           setLoading(false);
-          Router.push('/')
+          // Router.push('/')
         } else {
           setLoading(false);
-          Router.push('/')
+          // Router.push('/')
         }
       })
       .catch((err) => {
         setLoading(false)
-        Router.push('/')
+        // Router.push('/')
       });
 
     // dispatch the category action
     store.dispatch(fetchCategories());
 
     setLoading(false);
+  }
+
+  useEffect(() => {
+    userVarify()
   }, []);
+
 
   if (loading) {
     return (

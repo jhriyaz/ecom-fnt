@@ -15,6 +15,14 @@
             max-height: 400px;
             position: relative;
 
+            @media screen and (max-width:1180px) {
+                grid-column: span 6;
+            }
+
+            @media screen and (max-width:640px) {
+                grid-column: span 12;
+            }
+
             .details {
                 position: absolute;
                 top: 0px;
@@ -30,11 +38,26 @@
                 flex-direction: column;
                 justify-content: space-between;
 
+                @media screen and (max-width:1160px) {
+                    padding: 20px;
+                }
+
                 .title {
                     width: 80%;
                     font-weight: 700;
                     font-size: 28px;
                     line-height: 40px;
+
+                    @media screen and (max-width:1360px) {
+                        width: 100%;
+                        font-size: 24px;
+                        font-weight: 600;
+                    }
+
+
+                    @media screen and (max-width:1160px) {
+                        font-size: 20px;
+                    }
                 }
 
                 .favourite {
@@ -55,10 +78,19 @@
                     font-weight: 600;
                     font-size: 18px;
                     padding-top: 20px;
+
+                    @media screen and (max-width:1160px) {
+                        font-size: 16px;
+                        padding-top: 10px;
+                    }
                 }
 
                 .arrow {
                     height: 28px;
+
+                    @media screen and (max-width:1160px) {
+                        font-size: 20px;
+                    }
                 }
 
                 .bottom {

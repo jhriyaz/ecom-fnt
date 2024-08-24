@@ -50,6 +50,10 @@
     color: $text_black;
     font-weight: 600;
     text-align: center;
+
+    @media screen and (max-width: 860px) {
+        font-size: 20px;
+    }
 }
 
 .home_section_title {
@@ -59,6 +63,14 @@
     text-align: center;
     font-weight: 700;
     color: $text_black;
+
+    @media screen and (max-width: 1260px) {
+        font-size: 30px;
+    }
+
+    @media screen and (max-width: 660px) {
+        font-size: 24px;
+    }
 }
 
 .section_subtitle {

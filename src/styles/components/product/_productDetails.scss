@@ -1,7 +1,19 @@
     .product_container {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 30px;
+
+      @media screen and (max-width:1240px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      @media screen and (max-width:860px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @media screen and (max-width:560px) {
+        grid-template-columns: 1fr;
+      }
     }
 
 
@@ -23,7 +35,8 @@
 
       .produc_image {
         img {
-          object-fit: contain;
+          width: fit-content;
+          object-fit: cover;
         }
       }
 

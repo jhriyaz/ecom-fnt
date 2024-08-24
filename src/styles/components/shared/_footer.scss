@@ -9,6 +9,26 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 10%;
 
+        @media screen and (max-width: 1240px) {
+            gap: 5%;
+        }
+
+        @media screen and (max-width: 960px) {
+            gap: 5%;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media screen and (max-width: 660px) {
+            gap: 10%;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+
+        @media screen and (max-width: 540px) {
+            gap: 40px;
+            grid-template-columns: 1fr;
+        }
+
         .logo {
             height: 52px;
             width: fit-content;
@@ -49,6 +69,12 @@
             display: flex;
             color: $white;
             justify-content: space-between;
+
+            @media screen and (max-width: 760px) {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
 
             .links {
 

@@ -24,13 +24,10 @@ const ShopByCategory = () => {
                     categoriesData.length !== 0 && categoriesData.slice(0, 11).map((item, index) => {
                         return (
                             <div key={index} >
-                                <div onClick={() => Router.push(`/search?category=${item.slug}`)}>
-                                    <div className="category-card">
-                                        <Image src={item.categoryImage ? item.categoryImage : "https://via.placeholder.com/200"} height={200} width={200} />
-                                        <p className='name'>{item.name}</p>
-                                    </div>
+                                <div onClick={() => Router.push(`/search?category=${item.slug}`)} className="category-card">
+                                    <Image src={item.categoryImage ? item.categoryImage : "https://via.placeholder.com/200"} height={200} width={200} />
+                                    <p className='name'>{item.name}</p>
                                 </div>
-
                             </div>
                         )
                     })

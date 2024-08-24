@@ -1,4 +1,5 @@
 import Header from '@/components/shared/Header/Header'
+import { Footer } from 'antd/es/layout/layout'
 import React from 'react'
 
 const MainLayout = ({ children }) => {
@@ -6,6 +7,7 @@ const MainLayout = ({ children }) => {
         <div>
             <Header />
             {children}
+            <Footer />
         </div>
     )
 }

@@ -8,6 +8,7 @@ import CategoriesList from "@/components/home/CategoriesList";
 import FeaturedProduct from "@/components/home/FeaturedProduct";
 import LatestProducts from "@/components/home/LatestProducts";
 import ShopByCategory from "@/components/home/ShopByCategory";
+import ProductByCategory from "@/components/home/ProductByCategory";
 
 
 export default function Home() {
@@ -26,33 +27,11 @@ export default function Home() {
 
           <ShopByCategory />
 
-          {/* <CategoriesList /> */}
+          <ProductByCategory />
+
         </div>
       </div>
     </>
   );
 }
 
-// export async function getServerSideProps() {
-//   try {
-//     const res = await axiosInstance.get(
-//       "/product/getFeatured"
-//     );
-//     if (res.data?.success) {
-//       const featuredProduct = res.data?.products;
-
-//       return {
-//         props: {
-//           featuredProduct,
-//         },
-//       };
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     return {
-//       props: {
-//         featuredProduct: [],
-//       },
-//     };
-//   }
-// }

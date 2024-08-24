@@ -2,16 +2,17 @@
     .categories-container {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 1fr;
         gap: 20px;
 
         .category-card {
+            height: 100%;
             border-radius: 10px;
             background-color: $bg_gray;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            // padding-bottom: 20px;
             cursor: pointer;
 
             img {

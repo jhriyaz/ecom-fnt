@@ -27,6 +27,7 @@ const userSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(verifyUser.fulfilled, (state, action) => {
+        console.log(action?.payload)
         state.userInfo = action?.payload;
         state.isLoading = false;
         state.isSuccess = true;

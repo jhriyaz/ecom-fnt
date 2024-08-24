@@ -7,43 +7,10 @@ import { FcGoogle } from "react-icons/fc";
 import Link from 'next/link';
 import { useGoogleLogin } from '@react-oauth/google';
 import axiosInstance from '@/lib/axios';
+import handleGoogleSignIn from '@/utils/handleGoogleSignIn';
 
 const RegisterForm = ({ onFinishFailed, onFinish, loading }) => {
 
-    // const handleGoogleSignIn = useGoogleLogin({
-    //     onSuccess: res => {
-    //         console.log(res)
-    //         axiosInstance.post('/user/googleauth', { code: res.access_token })
-    //             .then(res => {
-    //                 if (res.data.requiredPassword) {
-    //                     setIsModalVisible(true)
-    //                     setTokenId(res.data.tokenId)
-    //                 } else {
-    //                     Cookies.set("myshop_auth2", res.data.token);
-    //                     notificationFunc("success", "Logged in successfully")
-    //                     setTimeout(() => {
-    //                         window.location.pathname = '/'
-    //                     }, 3000);
-    //                 }
-    //             })
-    //             .catch(err => {
-    //                 console.log(err)
-    //             })
-    //     },
-    //     scope: 'openid profile email'
-    // })
-
-    const handleGoogleSignIn = () => {
-        const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
-        const redirectUri = 'http://localhost:3001';
-        const scope = 'openid profile email';
-        const responseType = 'token id_token'; // Request both access token and id_token
-        const nonce = process.env.NEXT_SECRET
-
-        const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=${responseType}&prompt=select_account&nonce=${nonce}`;
-
-        window.location.href = googleAuthUrl;
-    };
 
     return (
         <Form

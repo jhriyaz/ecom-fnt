@@ -135,7 +135,7 @@ const FeaturedProduct = () => {
                   <Image src={'/svgs/home/nextEl.svg'} height={30} width={30} alt="next button" />
                 </button>
                 <button id="featured_prev_el">
-                  <Image src={'/svgs/home/prevEl.svg'} height={30} width={30} alt="next button" />
+                  <Image src={'/svgs/home/prevEl.svg'} height={30} width={30} alt="prev button" />
                 </button>
               </div>
             </div>

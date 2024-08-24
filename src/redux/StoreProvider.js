@@ -26,19 +26,13 @@ export default function StoreProvider({ children }) {
       axiosInstance.post('/user/googleauth', { tokenId: idToken })
         .then(res => {
           console.log(res)
-          if (res.data.requiredPassword) {
-            setIsModalVisible(true)
-            setTokenId(idToken)
-          } else {
-            Cookies.set("myshop_auth2", idToken);
-            notificationFunc("success", "Logged in successfully")
-            setTimeout(() => {
-              window.location.pathname = '/'
-            }, 3000);
-          }
+          Cookies.set("myshop_auth2", res.data.token);
+          notificationFunc("success", "Logged in successfully")
+          window.location.pathname = '/'
         })
         .catch(err => {
           notificationFunc("error", "failed to login.Please try again later")
+          console.log(err)
           Router.push('/auth/register')
         })
     }
@@ -52,11 +46,16 @@ export default function StoreProvider({ children }) {
       .then((result) => {
         if (verifyUser.fulfilled.match(result)) {
           setLoading(false);
+          Router.push('/')
         } else {
           setLoading(false);
+          Router.push('/')
         }
       })
-      .catch((err) => setLoading(false));
+      .catch((err) => {
+        setLoading(false)
+        Router.push('/')
+      });
 
     // dispatch the category action
     store.dispatch(fetchCategories());

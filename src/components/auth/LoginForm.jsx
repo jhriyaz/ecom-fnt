@@ -12,6 +12,7 @@ import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 import { notificationFunc } from "../global/notification";
 import { useSelector } from "react-redux";
+import handleGoogleSignIn from "@/utils/handleGoogleSignIn";
 
 const LoginForm = ({ setIsOpen }) => {
   const dispatch = useAppDispatch();
@@ -117,8 +118,8 @@ const LoginForm = ({ setIsOpen }) => {
 
       <Divider className='fs-6 text_gray'>Or Login With</Divider>
 
-      <button htmlType="button" className='default_input' onClick={() => setIsOpen && setIsOpen(false)}>
-        <div className='d-flex align-items-center justify-content-center gap-2'>
+      <button type="button" htmlType="button" className='default_input' onClick={() => setIsOpen && setIsOpen(false)}>
+        <div className='d-flex align-items-center justify-content-center gap-2' onClick={() => handleGoogleSignIn()}>
           <FcGoogle size={20} />
           Continue with Google
         </div>

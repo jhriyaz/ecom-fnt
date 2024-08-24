@@ -39,7 +39,7 @@ const LatestProducts = () => {
                         <div className='products-container'>
                             {
                                 LatestProducts.map(p => <div key={p._id} className='product'>
-                                    <Image src={p.thumbnail} height={500} width={500} />
+                                    <Image src={p.thumbnail} height={500} width={500} alt='product image' />
 
                                     <div className='details'>
 
@@ -70,7 +70,7 @@ const LatestProducts = () => {
                                         </div>
 
                                         <div className='bottom'>
-                                            <Image src={'/svgs/home/downArrow.png'} height={28} width={23} className='arrow' />
+                                            <Image src={'/svgs/home/downArrow.png'} height={28} width={23} className='arrow' alt='arrow down icon' />
                                             <button>shop now</button>
                                         </div>
 
